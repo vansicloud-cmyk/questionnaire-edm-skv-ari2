@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étude de marché - Comportement d'achat et perception des hoodies</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 35px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        
+        .section-info {
+            background-color: #f1f8ff;
+            padding: 12px 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            font-size: 0.95em;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .question-group {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fcfcfc;
+            border-radius: 8px;
+            border-left: 3px solid #ddd;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+            line-height: 26px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: border 0.3s;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .options-group {
+            margin-top: 10px;
+        }
+        
+        .radio-option,
+        .checkbox-option {
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+        
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.1);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            background: #3498db;
+        }
+        
+        .note {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .question-group {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Étude de marché : comportement d'achat et perception des hoodies</h1>
+        
+        <div class="section-info">
+            <strong>Confidentialité garantie :</strong> Cette enquête est anonyme. Les données collectées seront utilisées uniquement à des fins d'analyse marketing. Temps de completion estimé : 10-12 minutes.
+        </div>
+        
+        <form id="hoodie-study-form" method="POST" action="#">
+            
+            <!-- SECTION 1 : Identification et filtrage -->
+            <h2>1. Profil du répondant</h2>
+            <div class="section-info">
+                Ces questions permettent de comprendre votre profil en tant que consommateur de hoodies.
+            </div>
+            
+            <div class="question-group">
+                <!-- Question 1 -->
+                <div class="question">
+                    <div class="question-number">1</div>
+                    <label for="age">Quel est votre âge ? <span class="required">*</span></label>
+                    <select id="age" name="age" required>
+                        <option value="">Sélectionnez votre tranche d'âge</option>
+                        <option value="18-24">18-24 ans</option>
+                        <option value="25-34">25-34 ans</option>
+                        <option value="35-44">35-44 ans</option>
+                        <option value="45-54">45-54 ans</option>
+                        <option value="55+">55 ans et plus</option>
+                    </select>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="question">
+                    <div class="question-number">2</div>
+                    <label>À quelle fréquence achetez-vous des hoodies ? <span class="required">*</span></label>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="freq1" name="purchase_frequency" value="frequent" required>
+                            <label for="freq1" style="display:inline;">Fréquemment (plus de 2 par an)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="freq2" name="purchase_frequency" value="occasional">
+                            <label for="freq2" style="display:inline;">Occasionnellement (1-2 par an)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="freq3" name="purchase_frequency" value="rare">
+                            <label for="freq3" style="display:inline;">Rarement (moins d'1 par an)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="freq4" name="purchase_frequency" value="never">
+                            <label for="freq4" style="display:inline;">Je n'achète jamais de hoodies</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="question">
+                    <div class="question-number">3</div>
+                    <label>Diriez-vous que le hoodie est un vêtement important dans votre dressing ? <span class="required">*</span></label>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="importance1" name="hoodie_importance" value="essential" required>
+                            <label for="importance1" style="display:inline;">Essentiel, je ne pourrais pas m'en passer</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="importance2" name="hoodie_importance" value="important">
+                            <label for="importance2" style="display:inline;">Important, j'en porte régulièrement</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="importance3" name="hoodie_importance" value="optional">
+                            <label for="importance3" style="display:inline;">Optionnel, c'est un vêtement comme un autre</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="importance4" name="hoodie_importance" value="negligible">
+                            <label for="importance4" style="display:inline;">Peu important, j'en porte rarement</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="question">
+                    <div class="question-number">4</div>
+                    <label for="budget">Quel budget moyen consacrez-vous à l'achat d'un hoodie ? <span class="required">*</span></label>
+                    <select id="budget" name="budget" required>
+                        <option value="">Sélectionnez une fourchette</option>
+                        <option value="0-50">Moins de 50€</option>
+                        <option value="50-100">50€ à 100€</option>
+                        <option value="100-150">100€ à 150€</option>
+                        <option value="150-200">150€ à 200€</option>
+                        <option value="200-300">200€ à 300€</option>
+                        <option value="300+">Plus de 300€</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- SECTION 2 : Raisons et motivations d'achat -->
+            <h2>2. Motivations d'achat et critères de choix</h2>
+            <div class="section-info">
+                Cette section explore les raisons qui vous poussent à acheter un hoodie et les éléments qui guident votre choix.
+            </div>
+            
+            <div class="question-group">
+                <!-- Question 5 -->
+                <div class="question">
+                    <div class="question-number">5</div>
+                    <label>Quelles sont les principales raisons qui déclenchent l'achat d'un hoodie ? (plusieurs réponses possibles)</label>
+                    <div class="options-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason1" name="purchase_reasons" value="wear_out">
+                            <label for="reason1" style="display:inline;">Usure ou remplacement d'un hoodie existant</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason2" name="purchase_reasons" value="new_collection">
+                            <label for="reason2" style="display:inline;">Nouvelle collection / modèle qui me plaît</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason3" name="purchase_reasons" value="specific_need">
+                            <label for="reason3" style="display:inline;">Besoi spécifique (sport, voyage, etc.)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason4" name="purchase_reasons" value="mood">
+                            <label for="reason4" style="display:inline;">Coup de cœur / envie soudaine</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason5" name="purchase_reasons" value="gift">
+                            <label for="reason5" style="display:inline;">Cadeau</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason6" name="purchase_reasons" value="promotion">
+                            <label for="reason6" style="display:inline;">Promotion / solde</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 6 -->
+                <div class="question">
+                    <div class="question-number">6</div>
+                    <label>Classez par ordre d'importance les critères suivants lors de l'achat d'un hoodie (1 = le plus important)</label>
+                    <div class="options-group">
+                        <div>
+                            <label for="rank_comfort">Confort / sensation sur la peau</label>
+                            <select id="rank_comfort" name="rank_comfort">
+                                <option value="">Non classé</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <label for="rank_style">Style / design / coupe</label>
+                            <select id="rank_style" name="rank_style">
+                                <option value="">Non classé</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <label for="rank_price">Prix / rapport qualité-prix</label>
+                            <select id="rank_price" name="rank_price">
+                                <option value="">Non classé</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <label for="rank_quality">Qualité / durabilité / matière</label>
+                            <select id="rank_quality" name="rank_quality">
+                                <option value="">Non classé</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <label for="rank_brand">Marque / image de la marque</label>
+                            <select id="rank_brand" name="rank_brand">
+                                <option value="">Non classé</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <label for="rank_color">Couleur / motifs</label>
+                            <select id="rank_color" name="rank_color">
+                                <option value="">Non classé</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="note">Veuillez classer chaque critère avec un chiffre unique de 1 à 6</div>
+                </div>
+                
+                <!-- Question 7 -->
+                <div class="question">
+                    <div class="question-number">7</div>
+                    <label for="emotional_connection">Diriez-vous que votre hoodie préféré a une valeur émotionnelle particulière ? Si oui, pouvez-vous expliquer pourquoi ?</label>
+                    <textarea id="emotional_connection" name="emotional_connection" placeholder="Ex: cadeau d'un proche, souvenir d'un événement, première acquisition d'une marque prestigieuse..."></textarea>
+                </div>
+                
+                <!-- Question 8 -->
+                <div class="question">
+                    <div class="question-number">8</div>
+                    <label>Quelle est l'importance des aspects techniques (matière, fabrication, fonctionnalités) dans votre choix ?</label>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="tech1" name="technical_importance" value="essential">
+                            <label for="tech1" style="display:inline;">Essentielle, je vérifie toujours la composition et les détails techniques</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tech2" name="technical_importance" value="important">
+                            <label for="tech2" style="display:inline;">Importante, mais pas le critère décisif</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tech3" name="technical_importance" value="secondary">
+                            <label for="tech3" style="display:inline;">Secondaire, le look prime sur les aspects techniques</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tech4" name="technical_importance" value="negligible">
+                            <label for="tech4" style="display:inline;">Négligeable, je ne regarde pas ces aspects</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION 3 : Habitudes et occasions d'utilisation -->
+            <h2>3. Utilisation du hoodie au quotidien</h2>
+            <div class="section-info">
+                Cette section concerne la façon dont vous portez et utilisez vos hoodies dans la vie quotidienne.
+            </div>
+            
+            <div class="question-group">
+                <!-- Question 9 -->
+                <div class="question">
+                    <div class="question-number">9</div>
+                    <label>À quelle fréquence portez-vous un hoodie en moyenne ?</label>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="wear1" name="wear_frequency" value="daily">
+                            <label for="wear1" style="display:inline;">Quotidiennement ou presque</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="wear2" name="wear_frequency" value="weekly">
+                            <label for="wear2" style="display:inline;">Plusieurs fois par semaine</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="wear3" name="wear_frequency" value="occasionally">
+                            <label for="wear3" style="display:inline;">Occasionnellement (quelques fois par mois)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="wear4" name="wear_frequency" value="rarely">
+                            <label for="wear4" style="display:inline;">Rarement (quelques fois par an)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 10 -->
+                <div class="question">
+                    <div class="question-number">10</div>
+                    <label>Dans quels contextes portez-vous principalement un hoodie ? (plusieurs réponses possibles)</label>
+                    <div class="options-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="context1" name="wear_context" value="home">
+                            <label for="context1" style="display:inline;">À la maison / en télétravail</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="context2" name="wear_context" value="casual_outings">
+                            <label for="context2" style="display:inline;">Sorties décontractées (courses, promenade...)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="context3" name="wear_context" value="sport">
+                            <label for="context3" style="display:inline;">Pratique sportive / activités physiques</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="context4" name="wear_context" value="work">
+                            <label for="context4" style="display:inline;">Au travail (si dress code permis)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="context5" name="wear_context" value="social">
+                            <label for="context5" style="display:inline;">Sorties sociales (restaurant, bar, entre amis)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="context6" name="wear_context" value="travel">
+                            <label for="context6" style="display:inline;">En voyage / déplacements</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 11 -->
+                <div class="question">
+                    <div class="question-number">11</div>
+                    <label for="style_identity">Associez-vous le port du hoodie à un style de vie ou une identité particulière ?</label>
+                    <textarea id="style_identity" name="style_identity" placeholder="Ex: décontracté, sportif, urbain, créatif, jeune, etc."></textarea>
+                </div>
+                
+                <!-- Question 12 -->
+                <div class="question">
+                    <div class="question-number">12</div>
+                    <label>Combien de hoodies possédez-vous actuellement ?</label>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="count1" name="hoodie_count" value="1-3">
+                            <label for="count1" style="display:inline;">1 à 3 hoodies</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="count2" name="hoodie_count" value="4-6">
+                            <label for="count2" style="display:inline;">4 à 6 hoodies</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="count3" name="hoodie_count" value="7-10">
+                            <label for="count3" style="display:inline;">7 à 10 hoodies</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="count4" name="hoodie_count" value="10+">
+                            <label for="count4" style="display:inline;">Plus de 10 hoodies</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION 4 : Univers concurrentiel et perception -->
+            <h2>4. Perception des marques de hoodies</h2>
+            <div class="section-info">
+                Cette dernière section explore votre connaissance et perception des différentes marques proposant des hoodies.
+            </div>
+            
+            <div class="question-group">
+                <!-- Question 13 -->
+                <div class="question">
+                    <div class="question-number">13</div>
+                    <label for="spontaneous_brands">Citez spontanément 3 à 5 marques de hoodies qui vous viennent immédiatement à l'esprit :</label>
+                    <textarea id="spontaneous_brands" name="spontaneous_brands" placeholder="Ex: Nike, Sandro, The North Face, Zara, etc."></textarea>
+                </div>
+                
+                <!-- Question 14 -->
+                <div class="question">
+                    <div class="question-number">14</div>
+                    <label>Parmi les marques suivantes, lesquelles connaissez-vous ? (plusieurs réponses possibles)</label>
+                    <div class="options-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand1" name="known_brands" value="sandro">
+                            <label for="brand1" style="display:inline;">Sandro</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand2" name="known_brands" value="tommy">
+                            <label for="brand2" style="display:inline;">Tommy Hilfiger</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand3" name="known_brands" value="boss">
+                            <label for="brand3" style="display:inline;">Boss</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand4" name="known_brands" value="ami">
+                            <label for="brand4" style="display:inline;">Ami Paris</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand5" name="known_brands" value="cpcompany">
+                            <label for="brand5" style="display:inline;">C.P. Company</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand6" name="known_brands" value="nike">
+                            <label for="brand6" style="display:inline;">Nike</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand7" name="known_brands" value="adidas">
+                            <label for="brand7" style="display:inline;">Adidas</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="brand8" name="known_brands" value="uniqlo">
+                            <label for="brand8" style="display:inline;">Uniqlo</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 15 -->
+                <div class="question">
+                    <div class="question-number">15</div>
+                    <label>Pour chaque marque que vous connaissez, comment la percevez-vous en termes de positionnement ?</label>
+                    <div class="note">Si vous ne connaissez pas une marque, laissez la ligne vide</div>
+                    
+                    <h3>Sandro</h3>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="sandro1" name="position_sandro" value="luxury">
+                            <label for="sandro1" style="display:inline;">Luxe / premium</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="sandro2" name="position_sandro" value="accessible_premium">
+                            <label for="sandro2" style="display:inline;">Premium accessible</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="sandro3" name="position_sandro" value="mass_market">
+                            <label for="sandro3" style="display:inline;">Grand public / mass market</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="sandro4" name="position_sandro" value="unknown">
+                            <label for="sandro4" style="display:inline;">Ne connais pas</label>
+                        </div>
+                    </div>
+                    
+                    <h3>Tommy Hilfiger</h3>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="tommy1" name="position_tommy" value="luxury">
+                            <label for="tommy1" style="display:inline;">Luxe / premium</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tommy2" name="position_tommy" value="accessible_premium">
+                            <label for="tommy2" style="display:inline;">Premium accessible</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tommy3" name="position_tommy" value="mass_market">
+                            <label for="tommy3" style="display:inline;">Grand public / mass market</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tommy4" name="position_tommy" value="unknown">
+                            <label for="tommy4" style="display:inline;">Ne connais pas</label>
+                        </div>
+                    </div>
+                    
+                    <h3>Ami Paris</h3>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ami1" name="position_ami" value="luxury">
+                            <label for="ami1" style="display:inline;">Luxe / premium</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ami2" name="position_ami" value="accessible_premium">
+                            <label for="ami2" style="display:inline;">Premium accessible</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ami3" name="position_ami" value="mass_market">
+                            <label for="ami3" style="display:inline;">Grand public / mass market</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ami4" name="position_ami" value="unknown">
+                            <label for="ami4" style="display:inline;">Ne connais pas</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 16 -->
+                <div class="question">
+                    <div class="question-number">16</div>
+                    <label>Selon vous, quelles caractéristiques distinguent un hoodie "premium" d'un hoodie "basique" ? (plusieurs réponses possibles)</label>
+                    <div class="options-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff1" name="premium_differentiators" value="materials">
+                            <label for="diff1" style="display:inline;">Qualité des matières / tissus</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff2" name="premium_differentiators" value="finish">
+                            <label for="diff2" style="display:inline;">Finition / détails de fabrication</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff3" name="premium_differentiators" value="price">
+                            <label for="diff3" style="display:inline;">Prix élevé</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff4" name="premium_differentiators" value="brand">
+                            <label for="diff4" style="display:inline;">Notoriété / prestige de la marque</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff5" name="premium_differentiators" value="design">
+                            <label for="diff5" style="display:inline;">Design exclusif / unique</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff6" name="premium_differentiators" value="durability">
+                            <label for="diff6" style="display:inline;">Durabilité / longévité</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diff7" name="premium_differentiators" value="comfort">
+                            <label for="diff7" style="display:inline;">Confort supérieur</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 17 -->
+                <div class="question">
+                    <div class="question-number">17</div>
+                    <label for="brand_image">Décrivez en quelques mots l'image que vous associez à la marque C.P. Company :</label>
+                    <textarea id="brand_image" name="brand_image" placeholder="Ex: technique, innovante, urbaine, chère, etc."></textarea>
+                    <div class="note">Si vous ne connaissez pas cette marque, indiquez-le</div>
+                </div>
+                
+                <!-- Question 18 -->
+                <div class="question">
+                    <div class="question-number">18</div>
+                    <label>À quelle catégorie de prix associez-vous généralement un hoodie de marque "premium" ?</label>
+                    <div class="options-group">
+                        <div class="radio-option">
+                            <input type="radio" id="premium_price1" name="premium_price" value="100-150">
+                            <label for="premium_price1" style="display:inline;">100€ à 150€</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="premium_price2" name="premium_price" value="150-200">
+                            <label for="premium_price2" style="display:inline;">150€ à 200€</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="premium_price3" name="premium_price" value="200-300">
+                            <label for="premium_price3" style="display:inline;">200€ à 300€</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="premium_price4" name="premium_price" value="300+">
+                            <label for="premium_price4" style="display:inline;">Plus de 300€</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="premium_price5" name="premium_price" value="no_idea">
+                            <label for="premium_price5" style="display:inline;">Je ne sais pas</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 19 -->
+                <div class="question">
+                    <div class="question-number">19</div>
+                    <label for="purchase_influences">Quelles sont vos principales sources d'information ou d'inspiration pour l'achat d'un hoodie ?</label>
+                    <textarea id="purchase_influences" name="purchase_influences" placeholder="Ex: réseaux sociaux, magazines, amis, publicités, vitrines..."></textarea>
+                </div>
+                
+                <!-- Question 20 -->
+                <div class="question">
+                    <div class="question-number">20</div>
+                    <label for="additional_comments">Avez-vous des commentaires supplémentaires sur les hoodies, leur place dans la mode actuelle, ou des attentes non satisfaites par l'offre actuelle ?</label>
+                    <textarea id="additional_comments" name="additional_comments" placeholder="Vos observations sont précieuses..."></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Soumettre mes réponses</button>
+        </form>
+        
+        <div style="margin-top: 20px; text-align: center; color: #7f8c8d; font-size: 0.9em;">
+            Questionnaire conçu pour une étude de marché qualitative - © 2024 Étude Hoodies
+        </div>
+    </div>
+    
+    <script>
+        // Validation basique pour éviter les doublons dans le classement (Question 6)
+        document.getElementById('hoodie-study-form').addEventListener('submit', function(e) {
+            const rankSelects = document.querySelectorAll('select[name^="rank_"]');
+            const selectedValues = [];
+            let hasDuplicate = false;
+            
+            rankSelects.forEach(select => {
+                if (select.value && select.value !== '') {
+                    if (selectedValues.includes(select.value)) {
+                        hasDuplicate = true;
+                        select.style.borderColor = '#e74c3c';
+                    } else {
+                        selectedValues.push(select.value);
+                        select.style.borderColor = '#ddd';
+                    }
+                }
+            });
+            
+            if (hasDuplicate) {
+                e.preventDefault();
+                alert('Veuillez attribuer un rang unique à chaque critère dans la question 6 (pas de doublons).');
+            }
+        });
+        
+        // Réinitialiser la bordure quand l'utilisateur modifie une sélection
+        document.querySelectorAll('select[name^="rank_"]').forEach(select => {
+            select.addEventListener('change', function() {
+                this.style.borderColor = '#ddd';
+            });
+        });
+    </script>
+</body>
+</html>
